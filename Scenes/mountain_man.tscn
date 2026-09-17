@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bvnvqg38thwu2"]
+
+[ext_resource type="Texture2D" uid="uid://r27r5jqx3tw4" path="res://Assets/Sprites/Animations/Mountainmananimations.png" id="1_8xymf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p06h1"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84nev"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxqym"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smo3b"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bmqk"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuyg4"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ny71"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6lov"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k83v"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w17ue"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw103"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtqnc"]
+atlas = ExtResource("1_8xymf")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snep2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p06h1")
+}],
+"loop": true,
+"name": &"Airborne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84nev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxqym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smo3b")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 27.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bmqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuyg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ny71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6lov")
+}],
+"loop": true,
+"name": &"Walk Left",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k83v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w17ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw103")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtqnc")
+}],
+"loop": true,
+"name": &"Walk Right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xymf"]
+radius = 5.0
+
+[node name="MountainMan" type="CharacterBody2D" unique_id=1525479009]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1352121773]
+position = Vector2(-19, -4)
+sprite_frames = SubResource("SpriteFrames_snep2")
+animation = &"Jump"
+frame_progress = 0.0043084025
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145902307]
+position = Vector2(-19, -2)
+shape = SubResource("CircleShape2D_8xymf")
