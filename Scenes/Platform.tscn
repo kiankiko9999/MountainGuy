@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://olm872kgocpe"]
+
+[ext_resource type="Texture2D" uid="uid://espv5pjypvio" path="res://Assets/Sprites/16x16 Platform.png" id="1_pquxj"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=961163854]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=47914738]
+texture = ExtResource("1_pquxj")
