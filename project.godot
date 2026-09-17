@@ -11,14 +11,17 @@ config_version=5
 [application]
 
 config/name="MountainGuy"
-run/main_scene="uid://cs2lupc8c34qn"
+run/main_scene="uid://cxe2mrqcj0prg"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+run/canvas_textures/default_texture_filter=1
 
 [display]
 
 window/size/viewport_width=160
 window/size/viewport_height=144
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 

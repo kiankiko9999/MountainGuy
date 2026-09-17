@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c37jn8abuhvju"]
+
+[ext_resource type="Script" uid="uid://rrvqybwc1mje" path="res://Scripts/game_controller.gd" id="1_hrf0j"]
+[ext_resource type="PackedScene" uid="uid://olm872kgocpe" path="res://Scenes/Platform 16x16.tscn" id="2_mkoay"]
+
+[node name="GameController" type="Node2D" unique_id=431807724]
+script = ExtResource("1_hrf0j")
+platform16 = ExtResource("2_mkoay")

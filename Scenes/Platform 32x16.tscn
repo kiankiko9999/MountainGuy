@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bn531q25t816w"]
 
+[ext_resource type="Script" uid="uid://dkqs3ixmj8ru0" path="res://Scripts/platform_16x_16.gd" id="1_b3g5u"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nm0sd"]
 load_path = "res://.godot/imported/AllPlatforms.png-577e915fa7d4b0c74fee7c4e445483a0.ctex"
 
@@ -7,6 +9,8 @@ load_path = "res://.godot/imported/AllPlatforms.png-577e915fa7d4b0c74fee7c4e4454
 size = Vector2(30, 7)
 
 [node name="Platform" type="AnimatableBody2D" unique_id=961163854]
+sync_to_physics = false
+script = ExtResource("1_b3g5u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=47914738]
 texture = SubResource("CompressedTexture2D_nm0sd")
