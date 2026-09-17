@@ -60,6 +60,11 @@ animations = [{
 "name": &"Airborne",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_84nev")
@@ -72,7 +77,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jump",
-"speed": 27.0
+"speed": 27.01
 }, {
 "frames": [{
 "duration": 1.0,
@@ -117,8 +122,7 @@ radius = 5.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1352121773]
 position = Vector2(-19, -4)
 sprite_frames = SubResource("SpriteFrames_snep2")
-animation = &"Jump"
-frame_progress = 0.0043084025
+animation = &"Walk Left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145902307]
 position = Vector2(-19, -2)

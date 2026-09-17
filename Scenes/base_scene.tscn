@@ -1,6 +1,16 @@
-[gd_scene format=3 uid="uid://cxe2mrqcj0prg"]
+[gd_scene format=3 uid="uid://cs2lupc8c34qn"]
 
-[ext_resource type="Script" uid="uid://dq84y7a6ymx1t" path="res://Scripts/base_scene.gd" id="1_5yig4"]
+[ext_resource type="Script" path="res://Scenes/base_scene.gd" id="1_5yig4"]
+[ext_resource type="PackedScene" uid="uid://bvnvqg38thwu2" path="res://Scenes/mountain_man.tscn" id="2_ff227"]
 
 [node name="BaseScene" type="Node2D" unique_id=1861195362]
 script = ExtResource("1_5yig4")
+
+[node name="MountainMan" parent="." unique_id=1525479009 instance=ExtResource("2_ff227")]
+position = Vector2(85, -19)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=564242670]
+limit_left = -80
+limit_top = -72
+limit_right = 80
+limit_bottom = 72
