@@ -25,9 +25,17 @@ position = Vector2(47, 17)
 
 [node name="Platform" parent="." unique_id=961163854 instance=ExtResource("2_mslae")]
 
-[node name="GameController" type="Node2D" parent="." unique_id=618238109]
-script = ExtResource("5_kvnw2")
-platform16 = ExtResource("2_mslae")
-platform32 = ExtResource("3_6t8sk")
-platform48 = ExtResource("4_kvnw2")
-character = ExtResource("2_ff227")
+[node name="Platform4" parent="." unique_id=1866890367 instance=ExtResource("4_kvnw2")]
+position = Vector2(136, -112)
+
+[node name="Platform5" parent="." unique_id=1343430870 instance=ExtResource("2_mslae")]
+position = Vector2(165, -82)
+
+[node name="Platform6" parent="." unique_id=806142857 instance=ExtResource("3_6t8sk")]
+position = Vector2(218, -140)
+
+[node name="Platform7" parent="." unique_id=658414594 instance=ExtResource("2_mslae")]
+position = Vector2(186, -171)
+
+[node name="Platform8" parent="." unique_id=500563960 instance=ExtResource("4_kvnw2")]
+position = Vector2(273, -172)
