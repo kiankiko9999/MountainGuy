@@ -1,5 +1,5 @@
 extends AnimatableBody2D
-var speed = 20
+@export var speed = 20
 
 func _ready() -> void:
 	pass

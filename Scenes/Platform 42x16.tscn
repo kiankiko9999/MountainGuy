@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://byfqlftxxqnf0"]
+[gd_scene format=3 uid="uid://c24vgbve6ge3h"]
 
 [ext_resource type="Script" uid="uid://dkqs3ixmj8ru0" path="res://Scripts/platform_16x_16.gd" id="1_k22xf"]
 
@@ -17,7 +17,7 @@ texture = SubResource("CompressedTexture2D_nm0sd")
 region_enabled = true
 region_rect = Rect2(0, 16, 48, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=421923240]
+[node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=421923240]
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_s0huu")
 one_way_collision = true
