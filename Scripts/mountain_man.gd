@@ -35,10 +35,10 @@ func groundedMovement(delta, direction):
 	if direction:
 		velocity.x = direction * SPEED
 	if Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
-		print("left")
+		# print("left")
 		animator.play("Walk Left")
 	elif Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_left"):
-		print("right")
+		# print("right")
 		animator.play("Walk Right")
 	else:
 		velocity = Vector2(0,0)
@@ -48,7 +48,7 @@ func airMovement(delta, direction):
 	velocity += get_gravity() * delta
 	amInAir = true
 	if  direction:
-		print(direction)
+		# print(direction)
 		if abs(velocity.x) < 150:
 			velocity.x += direction * airAcceleration *delta
 		else:

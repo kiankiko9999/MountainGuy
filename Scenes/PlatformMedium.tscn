@@ -8,12 +8,17 @@ load_path = "res://.godot/imported/AllPlatforms.png-577e915fa7d4b0c74fee7c4e4454
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cdtb"]
 size = Vector2(30, 7)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b3g5u"]
-radius = 50.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kikmh"]
+size = Vector2(32, 9)
 
-[node name="Platform" type="AnimatableBody2D" unique_id=961163854]
+[node name="MediumPlatform" type="AnimatableBody2D" unique_id=961163854]
+collision_layer = 3
 sync_to_physics = false
 script = ExtResource("1_b3g5u")
+
+[node name="Timer" type="Timer" parent="." unique_id=1824082065]
+wait_time = 15.0
+autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=47914738]
 texture = SubResource("CompressedTexture2D_nm0sd")
@@ -26,8 +31,12 @@ shape = SubResource("RectangleShape2D_1cdtb")
 one_way_collision = true
 
 [node name="Radius" type="Area2D" parent="." unique_id=389042631]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Radius" unique_id=439849182]
-shape = SubResource("CircleShape2D_b3g5u")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_kikmh")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Radius" to="." method="_on_radius_body_entered"]

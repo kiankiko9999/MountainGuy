@@ -15,6 +15,10 @@ extends Node2D
 @export var mediumRatio = 0.6
 @export var hardRatio = 0.8
 
+@export var sPfRatio = 0.3
+@export var mPfRatio = 0.5
+@export var lPfRatio = 0.2
+
 #Idle Time for when platform doesn't spawn
 var idTiS1 = 0.0
 var idTiM1 = 0.0
@@ -61,31 +65,50 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	idTiS1 += delta
+	idTiM1 += delta
+	idTiL1 += delta
+	if (-timeToJumpHeight/(easyRatio * sPfRatio)) <= idTiS1:
+		spawnS1()
+	if (-timeToJumpHeight/(easyRatio * mPfRatio)) <= idTiM1:
+		spawnM1()
+	if (-timeToJumpHeight/(easyRatio * lPfRatio)) <= idTiL1:
+		spawnL1()
+		
+		
 	#if randf() < spawnRateS1:
 		#spawnS1()
 	#spawnRateS1 += 0.01 * delta
 	
 	# character can jump 8 instances of time to jump height spawn rate
-	if (-timeToJumpHeight) <= idTiS1:
-		idTiS1 = 0
-		spawnRateS1 = 0
-		var instanceSPf = sPf.instantiate()
-		instanceSPf.position = Vector2(maxX, minY)
-		add_child(instanceSPf)
-		pass
+	
 	
 
 func randLocation() -> Vector2:
-	var rand_x = round(randf_range(minX, maxX))
-	var rand_y = round(randf_range(maxX, maxY))
+	var rand_x = round(randf_range(minX, maxX + 60))
+	var rand_y = round(((maxY-minY)/(maxX-minX)) * (rand_x - minX) + maxY)
 	return Vector2(rand_x, rand_y)
+	# var rand_x = round(randf_range(minX, maxX))
+	# var rand_y = round(randf_range(maxX, maxY))
+	# return Vector2(rand_x, rand_y)
 
 func spawnS1():
 	idTiS1 = 0
 	spawnRateS1 = 0
 	var instanceSPf = sPf.instantiate()
 	instanceSPf.position = randLocation()
-	# print(instanceSPf.position)
 	add_child(instanceSPf)
+	
+func spawnM1():
+	idTiM1 = 0
+	spawnRateM1 = 0
+	var instanceMPf = mPf.instantiate()
+	instanceMPf.position = randLocation()
+	add_child(instanceMPf)
+	
+func spawnL1():
+	idTiL1 = 0
+	spawnRateL1 = 0
+	var instanceLPf = lPf.instantiate()
+	instanceLPf.position = randLocation()
+	add_child(instanceLPf)
