@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ku0t3eyrxsis"]
+
+[ext_resource type="Script" uid="uid://dkqs3ixmj8ru0" path="res://Scripts/platform_16x_16.gd" id="1_1cdtb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nm0sd"]
+load_path = "res://.godot/imported/AllPlatforms.png-577e915fa7d4b0c74fee7c4e445483a0.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nm0sd"]
+size = Vector2(15, 7)
+
+[node name="Platform2" type="AnimatableBody2D" unique_id=961163854]
+sync_to_physics = false
+script = ExtResource("1_1cdtb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=47914738]
+texture = SubResource("CompressedTexture2D_nm0sd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=421923240]
+shape = SubResource("RectangleShape2D_nm0sd")
+one_way_collision = true

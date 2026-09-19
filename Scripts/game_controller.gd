@@ -28,7 +28,7 @@ var idTiL1 = 0.0
 var spawnRateS1: float
 var spawnRateM1: float
 var spawnRateL1: float
-@export var platSpeed = 20
+@export var platSpeed = 32
 
 #Dimensions of the spawnbox outside of the camera
 var minX = 110
@@ -60,6 +60,7 @@ func _ready() -> void:
 	spawnRateS1 = easyRatio
 	spawnRateM1 = easyRatio
 	spawnRateL1 = easyRatio
+	speedUp()
 	pass # Replace with function body.
 
 
@@ -112,3 +113,8 @@ func spawnL1():
 	var instanceLPf = lPf.instantiate()
 	instanceLPf.position = randLocation()
 	add_child(instanceLPf)
+
+func speedUp():
+	await get_tree().create_timer(5.0).timeout
+	platSpeed += 16
+	speedUp()

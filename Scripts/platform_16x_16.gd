@@ -19,6 +19,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	move_local_x(-speed *delta)
 	move_local_y(speed *delta)
+	speed = game.platSpeed
 	pass
 
 func randLocation() -> Vector2:

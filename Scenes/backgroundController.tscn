@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://byol7ixc04tqt"]
+
+[ext_resource type="Script" uid="uid://de2fg10w3bhp5" path="res://Scripts/background_controller.gd" id="1_yi2wg"]
+[ext_resource type="PackedScene" uid="uid://dooswjxlh37ce" path="res://Scenes/Background.tscn" id="2_680ot"]
+
+[node name="BackgroundController" type="Node2D" unique_id=815307693]
+script = ExtResource("1_yi2wg")
+background = ExtResource("2_680ot")
