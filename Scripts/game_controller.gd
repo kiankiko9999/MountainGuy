@@ -11,9 +11,10 @@ extends Node2D
 
 #These are the difficulty proportions of the total y distance the character needs to jump to reach the next platform
 #Not to be changed except by game devs 
-@export var easyRatio = 0.4
-@export var mediumRatio = 0.6
-@export var hardRatio = 0.8
+@export var easyRatio = 1
+@export var mediumRatio = 2
+@export var hardRatio = 3
+var difficultyCoefficient: float
 
 @export var sPfRatio = 0.3
 @export var mPfRatio = 0.5
@@ -24,10 +25,8 @@ var idTiS1 = 0.0
 var idTiM1 = 0.0
 var idTiL1 = 0.0
 
+var speed = 32
 #Dynamic proportions, changed by the game
-var spawnRateS1: float
-var spawnRateM1: float
-var spawnRateL1: float
 @export var platSpeed = 32
 
 #Dimensions of the spawnbox outside of the camera
@@ -43,6 +42,7 @@ var totalydistance: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	difficultyCoefficient = easyRatio
 	
 	var mMan = character.instantiate()
 	mMan.position = Vector2(-2000, 2000)
@@ -57,23 +57,24 @@ func _ready() -> void:
 # The total y distance character moves relative to the platform
 	totalydistance = platydistance + maxJumpHeight
 	
-	spawnRateS1 = easyRatio
-	spawnRateM1 = easyRatio
-	spawnRateL1 = easyRatio
-	speedUp()
+	
+	
+
+
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(difficultyCoefficient)
 	idTiS1 += delta
 	idTiM1 += delta
 	idTiL1 += delta
-	if (-timeToJumpHeight/(easyRatio * sPfRatio)) <= idTiS1:
+	if (-timeToJumpHeight/(difficultyCoefficient * sPfRatio)) <= idTiS1/2:
 		spawnS1()
-	if (-timeToJumpHeight/(easyRatio * mPfRatio)) <= idTiM1:
+	if (-timeToJumpHeight/(difficultyCoefficient * mPfRatio)) <= idTiM1/2:
 		spawnM1()
-	if (-timeToJumpHeight/(easyRatio * lPfRatio)) <= idTiL1:
+	if (-timeToJumpHeight/(difficultyCoefficient * lPfRatio)) <= idTiL1/2:
 		spawnL1()
 		
 		
@@ -95,26 +96,30 @@ func randLocation() -> Vector2:
 
 func spawnS1():
 	idTiS1 = 0
-	spawnRateS1 = 0
 	var instanceSPf = sPf.instantiate()
 	instanceSPf.position = randLocation()
 	add_child(instanceSPf)
 	
 func spawnM1():
 	idTiM1 = 0
-	spawnRateM1 = 0
 	var instanceMPf = mPf.instantiate()
 	instanceMPf.position = randLocation()
 	add_child(instanceMPf)
 	
 func spawnL1():
 	idTiL1 = 0
-	spawnRateL1 = 0
 	var instanceLPf = lPf.instantiate()
 	instanceLPf.position = randLocation()
 	add_child(instanceLPf)
 
-func speedUp():
-	await get_tree().create_timer(5.0).timeout
-	platSpeed += 16
-	speedUp()
+
+func _on_medium_start_timeout() -> void:
+	difficultyCoefficient = mediumRatio
+	platSpeed = speed * difficultyCoefficient
+	print("medium")
+
+
+func _on_hard_start_timeout() -> void:
+	difficultyCoefficient = hardRatio
+	platSpeed = speed * difficultyCoefficient
+	print("hard")
