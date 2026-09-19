@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bn531q25t816w"]
+[gd_scene format=3 uid="uid://dq56sqjscp384"]
 
 [ext_resource type="Script" uid="uid://dkqs3ixmj8ru0" path="res://Scripts/platform_16x_16.gd" id="1_b3g5u"]
 
@@ -7,6 +7,9 @@ load_path = "res://.godot/imported/AllPlatforms.png-577e915fa7d4b0c74fee7c4e4454
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cdtb"]
 size = Vector2(30, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3g5u"]
+radius = 50.0
 
 [node name="Platform" type="AnimatableBody2D" unique_id=961163854]
 sync_to_physics = false
@@ -17,7 +20,14 @@ texture = SubResource("CompressedTexture2D_nm0sd")
 region_enabled = true
 region_rect = Rect2(16, 0, 32, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=421923240]
+[node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=421923240]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_1cdtb")
 one_way_collision = true
+
+[node name="Radius" type="Area2D" parent="." unique_id=389042631]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radius" unique_id=439849182]
+shape = SubResource("CircleShape2D_b3g5u")

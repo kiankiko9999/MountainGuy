@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://cxe2mrqcj0prg"]
 
 [ext_resource type="PackedScene" uid="uid://c1d8a21c2lhyq" path="res://Scenes/mountain_man.tscn" id="2_ff227"]
-[ext_resource type="PackedScene" path="res://Scenes/Platform 16x16.tscn" id="2_mslae"]
-[ext_resource type="PackedScene" path="res://Scenes/Platform 32x16.tscn" id="3_6t8sk"]
-[ext_resource type="PackedScene" path="res://Scenes/Platform 42x16.tscn" id="4_kvnw2"]
+[ext_resource type="PackedScene" uid="uid://ck4fhe1a1250k" path="res://Scenes/PlatformSmall.tscn" id="2_mslae"]
+[ext_resource type="PackedScene" uid="uid://dq56sqjscp384" path="res://Scenes/PlatformMedium.tscn" id="3_6t8sk"]
+[ext_resource type="PackedScene" uid="uid://c24vgbve6ge3h" path="res://Scenes/PlatformLarge.tscn" id="4_kvnw2"]
 [ext_resource type="Script" uid="uid://rrvqybwc1mje" path="res://Scripts/game_controller.gd" id="5_kvnw2"]
+[ext_resource type="PackedScene" uid="uid://dl6byynthnst4" path="res://Scenes/invisible_floor.tscn" id="6_cg6vo"]
 
 [node name="BaseScene" type="Node2D" unique_id=1861195362]
+script = ExtResource("5_kvnw2")
+sPf = ExtResource("2_mslae")
+mPf = ExtResource("3_6t8sk")
+lPf = ExtResource("4_kvnw2")
+character = ExtResource("2_ff227")
 
 [node name="MountainMan" parent="." unique_id=1525479009 instance=ExtResource("2_ff227")]
 position = Vector2(55, -25)
@@ -17,25 +23,5 @@ limit_top = -72
 limit_right = 80
 limit_bottom = 72
 
-[node name="Platform2" parent="." unique_id=26556161 instance=ExtResource("3_6t8sk")]
-position = Vector2(70, -58)
-
-[node name="Platform3" parent="." unique_id=1177337508 instance=ExtResource("4_kvnw2")]
-position = Vector2(47, 17)
-
-[node name="Platform" parent="." unique_id=961163854 instance=ExtResource("2_mslae")]
-
-[node name="Platform4" parent="." unique_id=1866890367 instance=ExtResource("4_kvnw2")]
-position = Vector2(136, -112)
-
-[node name="Platform5" parent="." unique_id=1343430870 instance=ExtResource("2_mslae")]
-position = Vector2(165, -82)
-
-[node name="Platform6" parent="." unique_id=806142857 instance=ExtResource("3_6t8sk")]
-position = Vector2(218, -140)
-
-[node name="Platform7" parent="." unique_id=658414594 instance=ExtResource("2_mslae")]
-position = Vector2(186, -171)
-
-[node name="Platform8" parent="." unique_id=500563960 instance=ExtResource("4_kvnw2")]
-position = Vector2(273, -172)
+[node name="Invisible FLoor" parent="." unique_id=1470710637 instance=ExtResource("6_cg6vo")]
+position = Vector2(0, 53)
