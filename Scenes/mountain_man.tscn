@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://r27r5jqx3tw4" path="res://Assets/Sprites/Animations/Mountainmananimations.png" id="1_8xymf"]
 [ext_resource type="Script" uid="uid://balwn284crror" path="res://Scripts/mountain_man.gd" id="1_p06h1"]
+[ext_resource type="AudioStream" uid="uid://rkyncoo33kk8" path="res://Assets/Audio/jump.wav" id="3_84nev"]
+[ext_resource type="AudioStream" uid="uid://c3ito7lhecdl8" path="res://Assets/Audio/hitHurt.wav" id="4_rxqym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_snep2"]
 atlas = ExtResource("1_8xymf")
@@ -137,3 +139,13 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145902307]
 shape = SubResource("RectangleShape2D_8xymf")
+
+[node name="jump" type="AudioStreamPlayer2D" parent="." unique_id=513356803]
+stream = ExtResource("3_84nev")
+
+[node name="doubleJump" type="AudioStreamPlayer2D" parent="." unique_id=1019290062]
+stream = ExtResource("3_84nev")
+pitch_scale = 1.32
+
+[node name="land" type="AudioStreamPlayer2D" parent="." unique_id=1152846930]
+stream = ExtResource("4_rxqym")

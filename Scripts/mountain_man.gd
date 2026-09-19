@@ -1,12 +1,15 @@
 extends CharacterBody2D
 @onready var animator = $AnimatedSprite2D
-
+@onready var jump= $jump
+@onready var doubleJump= $doubleJump
+@onready var land= $land
 var SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 var doublejump = true
 var air_resistance: float = 10.0
 var maxAirSpeed: float = 150.0
 var airAcceleration: float= 550.0
+var amInAir
 
 
 func _physics_process(delta: float) -> void:
@@ -19,11 +22,15 @@ func _physics_process(delta: float) -> void:
 
 func groundedMovement(delta, direction):
 	doublejump = true
+	if amInAir:
+		land.play()
+	amInAir = false
 	if Input.is_action_just_pressed("ui_accept"):
 		animator.play("Jump")
 		velocity.y = JUMP_VELOCITY
 		velocity.x = direction * SPEED 
 		airMovement(delta, direction)
+		jump.play()
 		return
 	if direction:
 		velocity.x = direction * SPEED
@@ -39,6 +46,7 @@ func groundedMovement(delta, direction):
 
 func airMovement(delta, direction):
 	velocity += get_gravity() * delta
+	amInAir = true
 	if  direction:
 		print(direction)
 		if abs(velocity.x) < 150:
@@ -48,10 +56,13 @@ func airMovement(delta, direction):
 	elif abs(velocity.x) < 150 && abs(velocity.x) > 0: 
 		velocity.x = move_toward(velocity.x, maxAirSpeed * direction, air_resistance)
 	if doublejump && !is_on_floor() && Input.is_action_just_pressed("ui_accept"):
+		doubleJump.play()
 		velocity.x = direction * 250 
 		if Input.is_action_pressed("ui_down"):
 			velocity.y += 150
 		elif velocity.y >0:
 			velocity.y =0
+			velocity.y += -150
+		else:
 			velocity.y += -150
 		doublejump = false
