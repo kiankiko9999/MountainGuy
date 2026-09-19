@@ -12,13 +12,13 @@ extends Node2D
 #These are the difficulty proportions of the total y distance the character needs to jump to reach the next platform
 #Not to be changed except by game devs 
 @export var easyRatio = 1
-@export var mediumRatio = 2
-@export var hardRatio = 3
+@export var mediumRatio = 1.5
+@export var hardRatio = 2
 var difficultyCoefficient: float
 
-@export var sPfRatio = 0.3
-@export var mPfRatio = 0.5
-@export var lPfRatio = 0.2
+@export var sPfRatio = 0.4
+@export var mPfRatio = 0.6
+@export var lPfRatio = 0.4
 
 #Idle Time for when platform doesn't spawn
 var idTiS1 = 0.0
@@ -70,11 +70,11 @@ func _process(delta: float) -> void:
 	idTiS1 += delta
 	idTiM1 += delta
 	idTiL1 += delta
-	if (-timeToJumpHeight/(difficultyCoefficient * sPfRatio)) <= idTiS1/2:
+	if (-timeToJumpHeight/(difficultyCoefficient * sPfRatio)) <= idTiS1/1.6:
 		spawnS1()
-	if (-timeToJumpHeight/(difficultyCoefficient * mPfRatio)) <= idTiM1/2:
+	if (-timeToJumpHeight/(difficultyCoefficient * mPfRatio)) <= idTiM1/1.6:
 		spawnM1()
-	if (-timeToJumpHeight/(difficultyCoefficient * lPfRatio)) <= idTiL1/2:
+	if (-timeToJumpHeight/(difficultyCoefficient * lPfRatio)) <= idTiL1/1.6:
 		spawnL1()
 		
 		

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var jump= $jump
 @onready var doubleJump= $doubleJump
 @onready var land= $land
+@export var lose = PackedScene
 var SPEED = 150.0
 @export var JUMP_VELOCITY = -400.0
 var doublejump = true
@@ -18,6 +19,8 @@ func _physics_process(delta: float) -> void:
 		groundedMovement(delta, direction)
 	else:
 		airMovement(delta, direction)
+	if(global_position.y > 300):
+		die()
 	move_and_slide()
 
 func groundedMovement(delta, direction):
@@ -66,3 +69,7 @@ func airMovement(delta, direction):
 		else:
 			velocity.y += -150
 		doublejump = false
+
+func die():
+	get_tree().change_scene_to_packed(lose)
+	queue_free()

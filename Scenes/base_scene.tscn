@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dq56sqjscp384" path="res://Scenes/PlatformMedium.tscn" id="3_6t8sk"]
 [ext_resource type="PackedScene" uid="uid://c24vgbve6ge3h" path="res://Scenes/PlatformLarge.tscn" id="4_k8th7"]
 [ext_resource type="Script" uid="uid://rrvqybwc1mje" path="res://Scripts/game_controller.gd" id="5_kvnw2"]
-[ext_resource type="PackedScene" uid="uid://dl6byynthnst4" path="res://Scenes/invisible_floor.tscn" id="6_cg6vo"]
+[ext_resource type="PackedScene" uid="uid://bea8eopfgv4mu" path="res://Scenes/invisible_floor.tscn" id="6_cg6vo"]
 [ext_resource type="PackedScene" uid="uid://byol7ixc04tqt" path="res://Scenes/backgroundController.tscn" id="7_k8th7"]
 
 [node name="BaseScene" type="Node2D" unique_id=1861195362]
@@ -25,7 +25,7 @@ limit_right = 82
 limit_bottom = 72
 
 [node name="Invisible FLoor" parent="." unique_id=1470710637 instance=ExtResource("6_cg6vo")]
-position = Vector2(0, 53)
+position = Vector2(0, 37)
 
 [node name="BackgroundController" parent="." unique_id=815307693 instance=ExtResource("7_k8th7")]
 
