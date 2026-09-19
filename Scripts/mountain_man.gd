@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var doubleJump= $doubleJump
 @onready var land= $land
 var SPEED = 150.0
-const JUMP_VELOCITY = -400.0
+@export var JUMP_VELOCITY = -400.0
 var doublejump = true
 var air_resistance: float = 10.0
 var maxAirSpeed: float = 150.0
