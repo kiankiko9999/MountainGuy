@@ -19,4 +19,6 @@ func _process(delta: float) -> void:
 	if global_position.y >200 && clone:
 		get_parent().spawnBackground()
 		clone = false
+	if global_position.y > 500:
+		queue_free()
 	pass
