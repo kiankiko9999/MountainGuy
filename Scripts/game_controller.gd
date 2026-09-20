@@ -1,4 +1,5 @@
 extends Node2D
+@onready var fade: CanvasLayer = $Fade
 
 #Small,medium,large platform
 @export var sPf: PackedScene
@@ -40,8 +41,12 @@ var maxJumpHeight: float
 var platydistance: float
 var totalydistance: float
 
+var win: bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	win = false
+	await fade.fade(0, 1).finished
 	difficultyCoefficient = easyRatio
 	
 	var mMan = character.instantiate()
@@ -123,3 +128,10 @@ func _on_hard_start_timeout() -> void:
 	difficultyCoefficient = hardRatio
 	platSpeed = speed * difficultyCoefficient
 	print("hard")
+
+
+func _on_end_game_timeout() -> void:
+	win = true
+	print("Win")
+	await fade.fade(1, 1).finished
+	get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
