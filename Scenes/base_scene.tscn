@@ -42,6 +42,7 @@ autostart = true
 
 [node name="EndGame" type="Timer" parent="." unique_id=1233531622]
 wait_time = 60.0
+one_shot = true
 autostart = true
 
 [node name="Fade" parent="." unique_id=1229759555 instance=ExtResource("8_k25q3")]
