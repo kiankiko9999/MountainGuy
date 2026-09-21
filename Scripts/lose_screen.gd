@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_accept"):
-		print("bruh")
+		#print("bruh")
 		# .finished is a tween method
 		await fade.fade(1, 1).finished
 		get_tree().change_scene_to_file("res://Scenes/base_scene.tscn")

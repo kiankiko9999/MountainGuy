@@ -8,11 +8,11 @@ extends CharacterBody2D
 
 @export var lose = PackedScene
 var SPEED = 150.0
-@export var JUMP_VELOCITY = -400.0
+@export var JUMP_VELOCITY = -325.0
 var doublejump = true
 var air_resistance: float = 10.0
 var maxAirSpeed: float = 150.0
-var airAcceleration: float= 550.0
+var airAcceleration: float= 300
 var amInAir
 
 
@@ -55,7 +55,7 @@ func airMovement(delta, direction):
 	velocity += get_gravity() * delta
 	amInAir = true
 	if  direction:
-		# print(direction)
+		#print(direction)
 		if abs(velocity.x) < 150:
 			velocity.x += direction * airAcceleration *delta
 		else:
@@ -64,14 +64,15 @@ func airMovement(delta, direction):
 		velocity.x = move_toward(velocity.x, maxAirSpeed * direction, air_resistance)
 	if doublejump && !is_on_floor() && Input.is_action_just_pressed("ui_accept"):
 		doubleJump.play()
-		velocity.x = direction * 250 
+		#velocity.x = direction * 150 
+		#print(velocity.x)
 		if Input.is_action_pressed("ui_down"):
 			velocity.y += 150
 		elif velocity.y >0:
 			velocity.y =0
-			velocity.y += -150
+			velocity.y += -250
 		else:
-			velocity.y += -150
+			velocity.y += -250
 		doublejump = false
 
 func die():

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bea8eopfgv4mu" path="res://Scenes/invisible_floor.tscn" id="6_cg6vo"]
 [ext_resource type="PackedScene" uid="uid://byol7ixc04tqt" path="res://Scenes/backgroundController.tscn" id="7_k8th7"]
 [ext_resource type="PackedScene" uid="uid://d1ob5d4w4koy7" path="res://Scenes/fade.tscn" id="8_k25q3"]
+[ext_resource type="AudioStream" uid="uid://df0own8n1dbqd" path="res://Assets/Audio/BeepBox-Song (1).wav" id="9_6xwkn"]
 
 [node name="BaseScene" type="Node2D" unique_id=1861195362]
 script = ExtResource("5_kvnw2")
@@ -47,6 +48,12 @@ autostart = true
 
 [node name="Fade" parent="." unique_id=1229759555 instance=ExtResource("8_k25q3")]
 
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1335869239]
+stream = ExtResource("9_6xwkn")
+volume_db = -9.123
+autoplay = true
+
 [connection signal="timeout" from="MediumStart" to="." method="_on_medium_start_timeout"]
 [connection signal="timeout" from="HardStart" to="." method="_on_hard_start_timeout"]
 [connection signal="timeout" from="EndGame" to="." method="_on_end_game_timeout"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

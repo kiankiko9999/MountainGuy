@@ -6,7 +6,7 @@ extends Node2D
 @export var mPf: PackedScene
 @export var lPf: PackedScene
 @export var character: PackedScene
-
+@onready var music= $Music
 @export var platSpawnRate = 0.0
 @export var platMinDistanceRatio = 0.5
 
@@ -71,7 +71,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(difficultyCoefficient)
 	idTiS1 += delta
 	idTiM1 += delta
 	idTiL1 += delta
@@ -135,6 +134,3 @@ func _on_end_game_timeout() -> void:
 	print("Win")
 	await fade.fade(1, 1).finished
 	get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
-	
-	
-	
