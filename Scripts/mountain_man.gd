@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var jump= $jump
 @onready var doubleJump= $doubleJump
 @onready var land= $land
+@onready var fade: CanvasLayer = $Fade
+
+
+@export var lose = PackedScene
 var SPEED = 150.0
 @export var JUMP_VELOCITY = -400.0
 var doublejump = true
@@ -12,12 +16,15 @@ var airAcceleration: float= 550.0
 var amInAir
 
 
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if is_on_floor():
 		groundedMovement(delta, direction)
 	else:
 		airMovement(delta, direction)
+	if(global_position.y > 300) && get_parent().win == false:
+		die()
 	move_and_slide()
 
 func groundedMovement(delta, direction):
@@ -66,3 +73,10 @@ func airMovement(delta, direction):
 		else:
 			velocity.y += -150
 		doublejump = false
+
+func die():
+	queue_free()
+	# await fade.fade(1, 1.5).finished
+	get_tree().change_scene_to_packed(lose)
+	# await fade.fade(0, 1.5).finished
+	

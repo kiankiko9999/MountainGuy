@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dq56sqjscp384" path="res://Scenes/PlatformMedium.tscn" id="3_6t8sk"]
 [ext_resource type="PackedScene" uid="uid://c24vgbve6ge3h" path="res://Scenes/PlatformLarge.tscn" id="4_k8th7"]
 [ext_resource type="Script" uid="uid://rrvqybwc1mje" path="res://Scripts/game_controller.gd" id="5_kvnw2"]
-[ext_resource type="PackedScene" path="res://Scenes/invisible_floor.tscn" id="6_cg6vo"]
+[ext_resource type="PackedScene" uid="uid://bea8eopfgv4mu" path="res://Scenes/invisible_floor.tscn" id="6_cg6vo"]
 [ext_resource type="PackedScene" uid="uid://byol7ixc04tqt" path="res://Scenes/backgroundController.tscn" id="7_k8th7"]
+[ext_resource type="PackedScene" uid="uid://d1ob5d4w4koy7" path="res://Scenes/fade.tscn" id="8_k25q3"]
 
 [node name="BaseScene" type="Node2D" unique_id=1861195362]
 script = ExtResource("5_kvnw2")
@@ -25,6 +26,27 @@ limit_right = 82
 limit_bottom = 72
 
 [node name="Invisible FLoor" parent="." unique_id=1470710637 instance=ExtResource("6_cg6vo")]
-position = Vector2(0, 53)
+position = Vector2(0, 37)
 
 [node name="BackgroundController" parent="." unique_id=815307693 instance=ExtResource("7_k8th7")]
+
+[node name="MediumStart" type="Timer" parent="." unique_id=1656380647]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="HardStart" type="Timer" parent="." unique_id=1975210905]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[node name="EndGame" type="Timer" parent="." unique_id=1233531622]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="Fade" parent="." unique_id=1229759555 instance=ExtResource("8_k25q3")]
+
+[connection signal="timeout" from="MediumStart" to="." method="_on_medium_start_timeout"]
+[connection signal="timeout" from="HardStart" to="." method="_on_hard_start_timeout"]
+[connection signal="timeout" from="EndGame" to="." method="_on_end_game_timeout"]

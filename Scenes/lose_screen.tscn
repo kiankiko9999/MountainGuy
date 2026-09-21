@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c6n5nau6i733j"]
+
+[ext_resource type="Script" uid="uid://cpnwk0d76vq2j" path="res://Scripts/lose_screen.gd" id="1_488pv"]
+[ext_resource type="Texture2D" uid="uid://cewnvovo5g24j" path="res://Assets/Sprites/Sprite-0003.png" id="1_s2rrh"]
+[ext_resource type="PackedScene" uid="uid://d1ob5d4w4koy7" path="res://Scenes/fade.tscn" id="3_go37l"]
+
+[node name="LoseScreen" type="Node2D" unique_id=300621525]
+script = ExtResource("1_488pv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773528185]
+position = Vector2(80, 72)
+texture = ExtResource("1_s2rrh")
+
+[node name="Fade" parent="." unique_id=1229759555 instance=ExtResource("3_go37l")]

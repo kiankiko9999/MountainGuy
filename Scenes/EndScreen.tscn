@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://8ynsx36w76m5"]
+
+[ext_resource type="Script" uid="uid://bpspyvgevj5pr" path="res://Scripts/end_screen.gd" id="1_2ohhu"]
+[ext_resource type="Texture2D" uid="uid://en0wx3iaw4wv" path="res://Assets/Sprites/Animations/Mountainmanendingsequence.png" id="2_jrx8a"]
+[ext_resource type="PackedScene" uid="uid://d1ob5d4w4koy7" path="res://Scenes/fade.tscn" id="3_jrx8a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gukv"]
+atlas = ExtResource("2_jrx8a")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh5rx"]
+atlas = ExtResource("2_jrx8a")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d234m"]
+atlas = ExtResource("2_jrx8a")
+region = Rect2(320, 0, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tslor"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gukv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh5rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d234m")
+}],
+"loop": true,
+"name": &"Ending",
+"speed": 0.75
+}]
+
+[node name="EndScreen" type="Node2D" unique_id=300621525]
+script = ExtResource("1_2ohhu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=631153426]
+position = Vector2(80, 72)
+sprite_frames = SubResource("SpriteFrames_tslor")
+animation = &"Ending"
+
+[node name="Fade" parent="." unique_id=1229759555 instance=ExtResource("3_jrx8a")]

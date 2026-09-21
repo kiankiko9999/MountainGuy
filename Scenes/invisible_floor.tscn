@@ -1,12 +1,19 @@
-[gd_scene format=3 uid="uid://dl6byynthnst4"]
+[gd_scene format=3 uid="uid://bea8eopfgv4mu"]
+
+[ext_resource type="Texture2D" uid="uid://cdaulog23fyv4" path="res://Assets/Sprites/Sprite-0002.png" id="1_jno7x"]
+[ext_resource type="Script" uid="uid://rm8do1w440s7" path="res://Scripts/invisible_floor.gd" id="1_on82g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2panm"]
 size = Vector2(222, 27)
 
 [node name="Invisible FLoor" type="AnimatableBody2D" unique_id=1470710637]
-position = Vector2(11, 56)
+script = ExtResource("1_on82g")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=1388644439]
 position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_2panm")
 one_way_collision = true
+
+[node name="Sprite0002" type="Sprite2D" parent="." unique_id=1923264777]
+position = Vector2(-2, -17)
+texture = ExtResource("1_jno7x")
