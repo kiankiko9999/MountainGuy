@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cjyq6qijt6bka"]
 
+[ext_resource type="Texture2D" uid="uid://bxm3fm2cawjpe" path="res://Assets/Sprites/Mountainmadmantitlescreen.png" id="1_v4pkt"]
 [ext_resource type="Script" uid="uid://c4soj0g8yummy" path="res://Scripts/mainmenu.gd" id="1_web8u"]
 [ext_resource type="PackedScene" uid="uid://cxe2mrqcj0prg" path="res://Scenes/base_scene.tscn" id="2_v4pkt"]
 [ext_resource type="PackedScene" uid="uid://8ynsx36w76m5" path="res://Scenes/EndScreen.tscn" id="3_lah54"]
 
 [node name="Sprite2D" type="Sprite2D" unique_id=1403274188]
+position = Vector2(80, 72)
+texture = ExtResource("1_v4pkt")
 script = ExtResource("1_web8u")
 game_scene = ExtResource("2_v4pkt")
 end_scene = ExtResource("3_lah54")
