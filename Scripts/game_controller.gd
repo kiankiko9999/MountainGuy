@@ -135,3 +135,6 @@ func _on_end_game_timeout() -> void:
 	print("Win")
 	await fade.fade(1, 1).finished
 	get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
+	
+	
+	

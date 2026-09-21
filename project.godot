@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MountainGuy"
-run/main_scene="uid://cxe2mrqcj0prg"
+run/main_scene="uid://cjyq6qijt6bka"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 run/canvas_textures/default_texture_filter=1

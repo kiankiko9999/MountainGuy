@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cjyq6qijt6bka"]
+
+[ext_resource type="Script" uid="uid://c4soj0g8yummy" path="res://Scripts/mainmenu.gd" id="1_web8u"]
+[ext_resource type="PackedScene" uid="uid://d1ob5d4w4koy7" path="res://Scenes/fade.tscn" id="2_rtnl3"]
+[ext_resource type="PackedScene" uid="uid://cxe2mrqcj0prg" path="res://Scenes/base_scene.tscn" id="2_v4pkt"]
+[ext_resource type="PackedScene" uid="uid://8ynsx36w76m5" path="res://Scenes/EndScreen.tscn" id="3_lah54"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1403274188]
+script = ExtResource("1_web8u")
+game_scene = ExtResource("2_v4pkt")
+end_scene = ExtResource("3_lah54")
+
+[node name="Play" type="Area2D" parent="." unique_id=1333734500]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Play" unique_id=980623168]
+
+[node name="EndScene" type="Area2D" parent="." unique_id=297377952]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndScene" unique_id=548828497]
+
+[node name="Fade" parent="EndScene" unique_id=1229759555 instance=ExtResource("2_rtnl3")]
